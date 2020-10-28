@@ -4,6 +4,7 @@ import ListItem from '../components/ListItems'
 
 export default ({ navigation }) => {
   const userId = navigation.getParam('user_id')
+  const userName= navigation.getParam('name')
   const [loading, setLoading] = useState(true)
   const [posts, setPosts] = useState([])
 //  console.log(userId)
@@ -21,12 +22,13 @@ export default ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      {loading ? <Text>Cargando...</Text> :
+      <Text>{userName}</Text>
+    {loading ? <Text>Cargando...</Text> :
       <FlatList
 	style={styles.list}
 	data={posts.filter(x => x.userId === userId)}
 	keyExtractor={x => String(x.id)}
-	renderItem={({ item }) => <ListItem onPress={() => navigation.navigate('Detail', { post_id: item.id })} title={item.title} />}
+	renderItem={({ item }) => <ListItem onPress={() => navigation.navigate('Detail', { title: item.title, body: item.body, name: userName })} title={item.title} />}
       />}
     </View>
   );

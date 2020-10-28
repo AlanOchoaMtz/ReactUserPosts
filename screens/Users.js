@@ -23,7 +23,7 @@ export default ({ navigation }) => {
 	style={styles.list}
 	data={users}
 	keyExtractor={x => String(x.id)}
-	renderItem={({ item }) => <ListItem onPress={() => navigation.navigate('Posts', { user_id: item.id})} title={item.name} />}
+	renderItem={({ item }) => <ListItem onPress={() => navigation.navigate('Posts', { user_id: item.id, name: item.name })} title={item.name} />}
       />}
     </View>
   );

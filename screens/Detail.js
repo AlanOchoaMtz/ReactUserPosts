@@ -1,10 +1,15 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-export default () => {
+export default ({navigation}) => {
+  const body = navigation.getParam('body')
+  const title = navigation.getParam('title')
+  const name = navigation.getParam('name')
   return (
     <View style={styles.container}>
-      <Text>Deatails</Text>
+      <Text>{name}</Text>
+      <Text>{title}</Text>
+      <Text>{body}</Text>
     </View>
   );
 }
@@ -14,6 +19,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
   },
 });
